@@ -57,6 +57,7 @@
 	}
 
 	.slide{
+	color: var(--vt-c-indigo);
 	max-width: 300px;
 	}
 
