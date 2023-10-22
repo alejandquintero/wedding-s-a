@@ -6,7 +6,7 @@
 	  </div>
 	  <div class="dresscode">
 		<div class="women">
-		  <span><map name=""></map><menu type="toolbar"></menu>ujeres: vestido largo colores terracota</span>
+		  <span><map name=""></map><menu type="toolbar"></menu>mujeres: vestido largo colores terracota</span>
 		</div>
 		<div class="men">
 		  <span>hombres: traje formal</span>

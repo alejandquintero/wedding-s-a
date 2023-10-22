@@ -13,6 +13,16 @@ a,
   transition: 0.2s;
 }
 
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease-in;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 @media (hover: hover) {
   a:hover {
 	transform: translateY(-4px);
@@ -25,3 +35,4 @@ a,
     place-items: center;
   }
 }
+

@@ -25,6 +25,7 @@
   .first-slide{
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	font-family: 'Sky';
   }
 

@@ -16,6 +16,11 @@
 	  <swiper-slide>
 		<Itinerary></Itinerary>
 	  </swiper-slide>
+
+	  <swiper-slide>
+		<ConfirmForm></ConfirmForm>
+	  </swiper-slide>
+
 	</swiper>
   
 </template>
@@ -29,6 +34,7 @@
   import Details from './Details.vue'
   import Dresscode from './Dresscode.vue'
   import Itinerary from './Itinerary.vue'
+  import ConfirmForm from './ConfirmForm.vue'
   
   export default {
 	components: {
@@ -37,7 +43,8 @@
 	  BigDay,
 	  Details,
 	  Dresscode,
-	  Itinerary
+	  Itinerary,
+	  ConfirmForm
 	},
 	setup() {
 	  return {
@@ -59,6 +66,8 @@
 	.slide{
 	color: var(--vt-c-indigo);
 	max-width: 300px;
+	min-height: 100vh;
+	padding: 2rem 0;
 	}
 
 	.bold{
