@@ -74,6 +74,11 @@
 	padding: 1.5rem;
   }
 
+  .name-activity{
+	/* font-weight: bold; */
+	color: #000
+  }
+
   .left-side{
 	display: flex;
 	justify-content: center;

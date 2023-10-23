@@ -13,8 +13,11 @@
 		<div v-if="members" class="container-form">
 			<div class="form">
 				<div class="form-field" v-for="(member, index) in members[0].members" :key="index">
-					<input type="checkbox" v-model="member.accepted" />
-					<label class="input">{{ member.name }} {{ member.lastname }}</label>
+					
+					<div class="form-checkbox">
+						<input class="checkbox" type="checkbox" :id="member.idPerson" v-model="member.accepted">
+						<label class="input" :for="member.idPerson" :tabindex="index">{{ member.name }} {{ member.lastname }}</label>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -39,75 +42,71 @@
   
 <script>
 export default {
-	name: 'ConfirmForm',
-	data() {
-		return {
-			members: null,
-			showMessageSubmit: false,
-			successSubmit: false,
-			statusMsg: ''
-		};
-	},
-	mounted() {
-		fetch('http://localhost:8080/family/123456/members')
-			.then((response) => response.json())
-			.then((data) => {
-				this.members = data;
-			})
-			.catch((error) => console.error('Error:', error));
-	},
-	methods: {
-		updateAttendance() {
-			if (this.members) {
-				this.showMessageSubmit = 'sending'; // Mostrar mensaje de envío
-
-				const updatedMembers = this.members[0].members.map((member) => ({
-					idPerson: member.idPerson,
-					accepted: member.accepted,
-				}));
-
-				const requestBody = {
-					idFamily: this.members[0].idFamily,
-					members: updatedMembers,
-				};
-
-				fetch('http://localhost:8080/family', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					},
-					body: JSON.stringify(requestBody),
-				})
-					.then((response) => {
-						if (response.ok) {
-							this.statusMsg = 'gracias💗​';
-							this.successSubmit = true;
-						} else {
-							this.statusMsg = 'error';
-							this.successSubmit = false;
-						}
-					})
-					.catch((error) => {
-						console.error('Error:', error);
-						tthis.statusMsg = 'error';
-						this.successSubmit = false;
-					})
-					.finally(() => {
-						this.showMessageSubmit = true;
-
-						setTimeout(() => {
-							this.showMessageSubmit = false;
-						}, 8000)
-
-					})
-			}
-		},
-	},
+    name: 'ConfirmForm',
+    data() {
+        return {
+            members: null,
+            showMessageSubmit: false,
+            successSubmit: false,
+            statusMsg: ''
+        };
+    },
+    mounted() {
+        fetch('http://localhost:8080/family/123456/members')
+            .then((response) => response.json())
+            .then((data) => {
+            this.members = data;
+        })
+            .catch((error) => console.error('Error:', error));
+    },
+    methods: {
+        updateAttendance() {
+            if (this.members) {
+                this.showMessageSubmit = 'sending'; // Mostrar mensaje de envío
+                const updatedMembers = this.members[0].members.map((member) => ({
+                    idPerson: member.idPerson,
+                    accepted: member.accepted,
+                }));
+                const requestBody = {
+                    idFamily: this.members[0].idFamily,
+                    members: updatedMembers,
+                };
+                fetch('http://localhost:8080/family', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestBody),
+                })
+                    .then((response) => {
+                    if (response.ok) {
+                        this.statusMsg = 'gracias💗​';
+                        this.successSubmit = true;
+                    }
+                    else {
+                        this.statusMsg = 'error';
+                        this.successSubmit = false;
+                    }
+                })
+                    .catch((error) => {
+                    console.error('Error:', error);
+                    tthis.statusMsg = 'error';
+                    this.successSubmit = false;
+                })
+                    .finally(() => {
+                    this.showMessageSubmit = true;
+                    setTimeout(() => {
+                        this.showMessageSubmit = false;
+                    }, 8000);
+                });
+            }
+        },
+    }
 };
 
 </script>
   
-<style scoped>
+<style lang ="scss" scoped>
 .titles {
 	display: flex;
 	flex-direction: column;
@@ -189,15 +188,126 @@ p {
 	background-color: rgba(65, 105, 225, 0.384);
 }
 
-.images {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+/* Checkbox */
+// Variables
+$checkbox-size: 20px;
+$checkbox-border: #cecece;
+$checkbox-selected: #000; // Primary colour
+
+.checkbox{
+  position: absolute;
+  opacity: 0;
+  
+  // Text
+  & + label{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    line-height: $checkbox-size;
+    padding-left: $checkbox-size + 10;
+    // font-size: $checkbox-size - 2;
+    // font-family: sans-serif;
+    // color: #666; // Label colour
+    
+    // Checkbox
+    &:before{
+      position: absolute;
+      display: block;
+      left: 0;
+      top: 0;
+      content: "";
+      background: #f2f2f2;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      
+      box-shadow: inset 0 0 0 1px $checkbox-border;
+      border-radius: 4px;
+      transition: 200ms ease-in-out all;
+    }
+    
+    // Tick
+    &:after{
+      position: absolute;
+      display: block;
+      top: 5px;
+      left: 8px;
+      content: "";
+      width: 3px;
+      height: 7px;
+      border-right: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      transform: rotate(45deg);
+      
+      transition: 200ms ease-in-out all;
+    }
+  }
+  
+  // Hover
+  & + label:hover{
+    color: #333;
+  }
+  
+  // Focus
+  & + label:focus{
+    outline: none;
+  }
+  
+  // Checked
+  &:checked{
+    & + label{
+      &:before{
+        background: $checkbox-selected;
+        box-shadow: none;
+      }
+      &:after{
+        border-color: white;
+      }
+    }
+  }
+  
+  // Disabled
+  &:disabled{
+    & + label{
+      &:before{
+        background: #f2f2f2; // Disabled colour
+        box-shadow: none;
+      }
+      &:after{
+        border-color: transparent;
+      }
+    }
+  }
+  
+  // Disabled Checked
+  &:checked:disabled{
+    & + label{
+      &:before{
+        background: #f2f2f2;
+        box-shadow: none;
+      }
+      &:after{
+        border-color: #cecece;
+      }
+    }
+  }
 }
 
-.container-dress {
-	width: 150px;
+// Additional demo styling
+.form-checkbox{
+  position: relative;
+  display: block;
+  margin: 0 0 15px;
 }
+.demo{
+  display: block;
+  width: 240px;
+  margin: 50px auto;
+  padding: 100px;
+  border: 1px solid $checkbox-border;
+  border-radius: 10px;
+}
+
+/* Checkbox */
 
 
 @media screen and (min-width: 768px) {

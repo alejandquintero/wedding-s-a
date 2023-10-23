@@ -89,7 +89,7 @@
 	padding: 4rem;
 	font-size: 16px;
 	font-family: 'Sky';
-	background-color: #f4f5f7;
+	background-color: #dbd1c5;
 	height: 100vh;  
 	display: flex;
 	justify-content: center;

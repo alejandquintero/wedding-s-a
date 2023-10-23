@@ -2,11 +2,11 @@
 	<div class="slide second-slide">
 	  <div class="names">
 		<span>Sarahys</span>
-		<span>&</span>
+		<span class="special">&</span>
 		<span>Alejandro</span>
 	  </div>
 	  <div class="description">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis non corrupti dolore consequatur atque rem architecto distinctio ad, vero tempore quisquam? Rem eos dolor exercitationem suscipit illo ab voluptate magnam.
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis non corrupti dolore consequatur atque rem architecto distinctio ad, vero tempore quisquam? Rem eos dolor.
 	  </div>
 	  <div class="dates">
 		<span class="time bold">20 . 09 . 24</span>
@@ -20,11 +20,12 @@
 	  <div class="locations">
 		<div class="church">
 		  <span class="bold">ceremonia</span>
-		  <span class="where">parroquia de santo domingo de silos</span>
+		  <span class="where">santo domingo de silos</span>
 		  <a href="https://maps.app.goo.gl/Gdr5KhaH3z231UQt5" target="_blank" class="icon-location">
 			<img src="../assets/location.png" alt="Ubicación de la iglesia">
 		  </a>
 		</div>
+		<div class="separator"></div>
 		<div class="party">
 		  <span class="bold">fiesta</span>
 		  <span class="where">finca buenos aires</span>
@@ -85,7 +86,14 @@
 	align-items: center;
 	gap: 1rem;
   }
+.special{
+	font-family: 'Brilliant';
+}
 
+.description{
+	text-align: justify;
+	padding: 0 1rem;
+}
   .names{
 	display: flex;
 	flex-direction: column;
@@ -102,24 +110,31 @@
   .locations{
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
-	gap: 12px;
+	align-items: center;
+	gap: 16px;
   }
+
+  .separator{
+	width: 1px;
+	height: 100px;
+	background-color: #0000002e;;
+  }
+
   .church, .party{
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-end;
 	width: 150px;
   }
   .party{
-	border-left: 1px solid #0000002e;
+	align-items: flex-start;
   }
 
 .icon-location{
 	cursor: pointer;
-	width: 30px;
+	width: 25px;
 }
 
 .time{
