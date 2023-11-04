@@ -6,7 +6,7 @@
 		<span>Alejandro</span>
 	  </div>
 	  <div class="description">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis non corrupti dolore consequatur atque rem architecto distinctio ad, vero tempore quisquam? Rem eos dolor.
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis non corrupti dolore consequatur.
 	  </div>
 	  <div class="dates">
 		<span class="time bold">20 . 09 . 24</span>
@@ -97,8 +97,9 @@
   .names{
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
 	line-height: 60px;
-	font-size: 4rem;
+	font-size: 5rem;
 	font-family: 'Athalia';
   }
 

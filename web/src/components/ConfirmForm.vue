@@ -8,7 +8,7 @@
 				adipisci placeat modi ratione ut fugit eaque facilis tempore, tempora cum quam veritatis nesciunt autem?</p>
 		</div>	
 		<div v-if="members" class="container-form">
-			<h2 class="subtitle">Familia {{ members.name }}</h2>
+			<h2 class="subtitle">{{ members.name }}</h2>
 		</div>
 		<div v-if="members" class="container-form">
 			<div class="form">
@@ -24,7 +24,7 @@
 
 		<Transition appear mode="out-in" name="fade">
 
-			<div class="container-button-icons-contact" v-if="!showMessageSubmit">
+			<div class="container-button" v-if="!showMessageSubmit">
 
 				<div class="container-button">
 					<button class="button" @click="updateAttendance">guardar</button>
@@ -78,7 +78,7 @@ export default {
                 })
                     .then((response) => {
                     if (response.ok) {
-                        this.statusMsg = 'gracias💗​';
+                        this.statusMsg = '💗​';
                         this.successSubmit = true;
                     }
                     else {
@@ -119,8 +119,16 @@ p {
 	text-align: justify;
 }
 
+.subtitle{
+	font-size: 3rem;
+	font-family: 'Athalia' ;
+}
+
 .form {
 	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	align-items: flex-start;
 	width: 100%;
 	flex-direction: column;
 	gap: 20px;
@@ -142,6 +150,7 @@ p {
 }
 
 .container-form {
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
@@ -154,30 +163,32 @@ p {
 	width: 150px;
 	height: 35px;
 	text-align: center;
-	border-radius: 10px;
-	background-color: #9fdeaf;
-	box-shadow: 0 0 5px #8ca1bf;
+	border-radius: 20px;
+	background-color: var(--vt-c-indigo);
 	color: var(--color-bg-dark);
 	margin-left: 0px;
 }
 
 .button {
+	width: 100%;
+	padding: 0;
 	font-family: 'Sky';
 	font-size: 16px;
 	display: flex;
 	height: 35px;
 	justify-content: center;
 	align-items: center;
-	transition: background-color .5s;
+	transition: background-color .3s;
 	cursor: pointer;
 	border: none;
 	border-radius: 20px;
-	width: 150px;
+	// width: 150px;
 	background-color: var(--vt-c-indigo);
 	color: #f4f5f7;
 }
 
 .container-button {
+	width: 100%;
 	display: flex;
 	justify-content: center;
 }
