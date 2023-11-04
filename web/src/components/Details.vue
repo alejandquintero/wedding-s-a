@@ -1,12 +1,12 @@
 <template>
 	<div class="slide second-slide">
 	  <div class="names">
-		<span>Sarahys</span>
-		<span class="special">&</span>
-		<span>Alejandro</span>
+		<h1>Sarahys</h1>
+		<h1 class="special">&</h1>
+		<h1>Alejandro</h1>
 	  </div>
 	  <div class="description">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis non corrupti dolore consequatur.
+		Lorem ipsum dolor sit amet consectetur
 	  </div>
 	  <div class="dates">
 		<span class="time bold">20 . 09 . 24</span>
@@ -80,11 +80,8 @@
 	align-items: center;
   }
   .second-slide{
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	gap: 1rem;
+	gap: 1.25rem;
   }
 .special{
 	font-family: 'Brilliant';
@@ -97,11 +94,14 @@
   .names{
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 15px;
 	line-height: 60px;
-	font-size: 5rem;
 	font-family: 'Athalia';
   }
+
+   h1{
+	font-size: 5rem;
+   }
 
   .where{
 	display: flex;
@@ -118,7 +118,7 @@
   .separator{
 	width: 1px;
 	height: 100px;
-	background-color: #0000002e;;
+	background-color: #0000002e;
   }
 
   .church, .party{
@@ -135,16 +135,19 @@
 
 .icon-location{
 	cursor: pointer;
-	width: 25px;
+	width: 20px;
 }
 
 .time{
-	font-size: 2rem;
+	font-size: 2.2rem;
 }
 
 @media screen and (min-width: 768px) {
 	.names{
 	line-height: 90px;
+  }
+
+  h1{
 	font-size: 6rem;
   }
 

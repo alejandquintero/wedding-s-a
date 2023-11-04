@@ -1,5 +1,5 @@
 <template>
-	<div class="slide fourth-slide">
+	<div class="slide">
 		<div class="titles">
 			<h1 class="title">Asistencia</h1>
 		</div>
@@ -52,6 +52,7 @@ export default {
             successSubmit: false,
             statusMsg: '',
 			api: '',
+			typing: false
         };
     },
     mounted() {
@@ -108,7 +109,6 @@ export default {
 .titles {
 	display: flex;
 	flex-direction: column;
-	line-height: 40px;
 }
 
 label {
@@ -131,16 +131,7 @@ p {
 	align-items: flex-start;
 	width: 100%;
 	flex-direction: column;
-	gap: 20px;
-}
-
-.fourth-slide {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
-	align-items: center;
-	/* gap: 50px; */
-	padding-top: 3.7rem;
+	gap: 15px;
 }
 
 .form-field {
@@ -153,24 +144,25 @@ p {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
 }
 
 .message-form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 150px;
+	width: 100%;
+	max-width: 250px;	
 	height: 35px;
 	text-align: center;
 	border-radius: 20px;
-	background-color: var(--vt-c-indigo);
+	background-color: var(--vt-c-slide-color-titles);
 	color: var(--color-bg-dark);
 	margin-left: 0px;
 }
 
 .button {
 	width: 100%;
+	max-width: 250px;
 	padding: 0;
 	font-family: 'Sky';
 	font-size: 16px;
@@ -182,9 +174,8 @@ p {
 	cursor: pointer;
 	border: none;
 	border-radius: 20px;
-	// width: 150px;
-	background-color: var(--vt-c-indigo);
-	color: #f4f5f7;
+	background-color: var(--vt-c-slide-color-titles);
+	color: var(--vt-c-slide-color);
 }
 
 .container-button {
@@ -194,13 +185,16 @@ p {
 }
 
 .button:hover {
-	background-color: rgba(65, 105, 225, 0.384);
+	color: var(--vt-c-slide-color-titles);
+	outline: 1px solid var(--vt-c-slide-color-titles);
+	outline-offset: -1px;
+	background-color: var(--vt-c-slide-color);
 }
 
 /* Checkbox */
 // Variables
 $checkbox-size: 20px;
-$checkbox-border: #cecece;
+$checkbox-border: #000;
 $checkbox-selected: #000; // Primary colour
 
 .checkbox{
@@ -225,12 +219,12 @@ $checkbox-selected: #000; // Primary colour
       left: 0;
       top: 0;
       content: "";
-      background: #f2f2f2;
+      background: var(--vt-c-slide-color);
       width: $checkbox-size;
       height: $checkbox-size;
       
       box-shadow: inset 0 0 0 1px $checkbox-border;
-      border-radius: 4px;
+      border-radius: 50%;
       transition: 200ms ease-in-out all;
     }
     

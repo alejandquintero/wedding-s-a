@@ -13,6 +13,7 @@
   
   <style scoped>
   .big-day{
+	color: var(--vt-c-slide-color-titles);
 	font-size: 4rem;
 	font-weight: bold;
 	letter-spacing: 10px;

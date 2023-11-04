@@ -1,5 +1,5 @@
 <template>
-	<div class="slide fourth-slide">
+	<div class="slide">
 	  <h1 class="title">Itinerario</h1>
 	  <div class="container-itinerary">
 		<div class="activity" v-for="item in activities" :key="item.id">
@@ -61,22 +61,13 @@
   
   <style scoped>
 
-.fourth-slide{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 0rem;
-  }
-
 .container-logo{
 	width: 100px;
 	padding: 1.5rem;
   }
 
-  .name-activity{
-	/* font-weight: bold; */
-	color: #000
+  .name-activity, .hour{
+	color: var(--vt-c-slide-color-titles);
   }
 
   .left-side{
