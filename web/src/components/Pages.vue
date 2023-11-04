@@ -17,8 +17,8 @@
 		<Itinerary></Itinerary>
 	  </swiper-slide>
 
-	  <swiper-slide>
-		<ConfirmForm></ConfirmForm>
+	  <swiper-slide v-if="codeValid">
+		<ConfirmForm :members="members"></ConfirmForm>
 	  </swiper-slide>
 
 	</swiper>
@@ -37,6 +37,44 @@
   import ConfirmForm from './ConfirmForm.vue'
   
   export default {
+	data(){
+		return {
+			codeValid: false,
+			api: null,
+			code: null,
+			members: null	
+		}
+	},
+	mounted(){
+		this.api = import.meta.env.VITE_URL_API 
+		this.code = window.location.pathname.split("/").pop()
+
+		if (this.code.length > 0)
+		{
+			let endpoint = import.meta.env.VITE_ENDPOINT_LIST_MEMBERS
+			fetch(`${this.api}/${this.code}/${endpoint}`)
+				.then((response) => {
+					if(response.status == 200){
+						return response.json()
+					}
+					throw Error (response.status)
+				})
+				.then((data) => {
+				if(data.length > 0)
+				{
+					this.codeValid = true;
+					this.members = data[0];
+				}
+				else {
+					this.codeValid = false;
+				}
+			})
+				.catch((error) => {
+					this.codeValid = false;
+					console.error(error)
+				});
+		}
+	},
 	components: {
 	  Swiper,
 	  SwiperSlide,

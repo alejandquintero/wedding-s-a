@@ -8,11 +8,11 @@
 				adipisci placeat modi ratione ut fugit eaque facilis tempore, tempora cum quam veritatis nesciunt autem?</p>
 		</div>	
 		<div v-if="members" class="container-form">
-			<h2 class="subtitle">Familia {{ members[0].name }}</h2>
+			<h2 class="subtitle">Familia {{ members.name }}</h2>
 		</div>
 		<div v-if="members" class="container-form">
 			<div class="form">
-				<div class="form-field" v-for="(member, index) in members[0].members" :key="index">
+				<div class="form-field" v-for="(member, index) in members.members" :key="index">
 					
 					<div class="form-checkbox">
 						<input class="checkbox" type="checkbox" :id="member.idPerson" v-model="member.accepted">
@@ -43,35 +43,33 @@
 <script>
 export default {
     name: 'ConfirmForm',
+	props:{
+		members: Object
+	},
     data() {
         return {
-            members: null,
             showMessageSubmit: false,
             successSubmit: false,
-            statusMsg: ''
+            statusMsg: '',
+			api: '',
         };
     },
     mounted() {
-        fetch('http://localhost:8080/family/123456/members')
-            .then((response) => response.json())
-            .then((data) => {
-            this.members = data;
-        })
-            .catch((error) => console.error('Error:', error));
+		this.api = import.meta.env.VITE_URL_API
     },
     methods: {
         updateAttendance() {
             if (this.members) {
                 this.showMessageSubmit = 'sending'; // Mostrar mensaje de envío
-                const updatedMembers = this.members[0].members.map((member) => ({
+                const updatedMembers = this.members.members.map((member) => ({
                     idPerson: member.idPerson,
                     accepted: member.accepted,
                 }));
                 const requestBody = {
-                    idFamily: this.members[0].idFamily,
+                    idFamily: this.members.idFamily,
                     members: updatedMembers,
                 };
-                fetch('http://localhost:8080/family', {
+                fetch(`${this.api}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
