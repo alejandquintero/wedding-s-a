@@ -2,15 +2,36 @@
 	<div class="slide">
 	  <div class="titles">
 		<h1 class="title">Dresscode</h1>
-		<h2 class="subtitle">formal</h2>
 	  </div>
-	  <div class="dresscode">
-		<div class="women">
-		  <span>mujeres: vestido largo colores terracota</span>
+	  <div class="locations">
+		<div class="church">
+		  <span class="bold">otoño elegante</span>
+		  <a href="#" target="_blank" class="icon-location">
+			<img src="../assets/man-gender.png" alt="Ubicación de la iglesia">
+		  </a>
+		  <span class="where">traje formal negro</span>
 		</div>
-		<div class="men">
-		  <span>hombres: traje formal</span>
+		<div class="separator"></div>
+		<div class="party">
+		  <span class="bold">atuendo formal</span>
+		  <a href="#" target="_blank" class="icon-location">
+			<img src="../assets/woman-gender.png" alt="Ubicación de la fiesta">
+		  </a>
+		  <span class="where">vestido largo</span>
 		</div>
+	  </div>
+	  <div class="the-colors">
+		<span class="bold">los colores</span>
+		  <div class="container-colors">
+			  <div class="colors color-7"></div>
+			  <div class="colors color-1"></div>
+			  <div class="colors color-2"></div>
+			  <div class="colors color-3"></div>
+			  <div class="colors color-9"></div>
+			  <div class="colors color-4"></div>
+			  <div class="colors color-5"></div>
+			  <div class="colors color-6"></div>
+		  </div>
 	  </div>
 	  <div class="images">
 		<div class="container-dress man">
@@ -19,10 +40,6 @@
 		<div class="container-dress woman">
 		  	<img src="../assets/woman.png" alt="Vestido largo para mujeres">
 		</div>
-	  </div>
-	  <div class="container-colors">
-		  <div class="colors">
-		  </div>
 	  </div>
 	</div>
   </template>
@@ -35,6 +52,9 @@
   
   <style scoped>
 
+	h1{
+		height: 70px;
+	}
 	.titles{
 	display: flex;
 	flex-direction: column;
@@ -46,12 +66,25 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transform: translateY(25px);
   }
 
   .dresscode{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+  }
+  .the-colors{
+	padding-bottom: 6px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	/* border-top: 1px solid #0000002e ;
+	border-bottom: 1px solid #0000002e ; */
+	transform: translateY(10px);
+
   }
 
   .container-dress{
@@ -73,19 +106,94 @@
   }
 
   .colors{
-	  width: 250px;
-	  height: 35px;
-	  border-radius: 40px;
-	  background: linear-gradient(90deg, #472e05, #861c0e 30%, #bb4e0b, #ec6816, #f18216, #faa842);
+	  width: 25px;
+	  height: 25px;
+	  border-radius: 50%;
+	  /* background: linear-gradient(90deg, #472e05, #861c0e 30%, #bb4e0b, #ec6816, #f18216, #faa842); */
+  }
+
+  .color-7{
+	  background-color: #631219;
+	}
+
+	.color-9{
+	  background-color: #cd6132;
+	}
+
+	.color-8{
+	  background-color: #d18c01;
+	}
+  .color-1{
+	  background-color: #861c0e;
+	}
+	
+	.color-2{
+		background-color: #883a0c;
+	}
+  .color-3{
+	background-color: #bb4e0b;
   }
   
+  .color-4{
+	background-color: #ec6816;
+  }
+  
+  .color-5{
+	background-color: #f18216;
+  }
+  .color-6{
+	background-color: #faa842;
+  }
+
+  .where{
+	display: flex;
+	align-items: center;
+  }
+  .locations{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+  }
+
+  .separator{
+	width: 1px;
+	transform: translateY(10px);
+	height: 50px;
+	background-color: #0000002e;
+  }
+
+  .church, .party{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	justify-content: center;
+	align-items: center;
+	width: 150px;
+  }
+
+.icon-location{
+	cursor: pointer;
+	width: 20px;
+}
+  
   @media screen and (min-width: 768px) {
+
+	.images{
+	transform: translateY(0);
+  }
+
+  .the-colors{
+	transform: translateY(0);
+  }
+
+
 	.container-dress{
-	width: 200px;
+	width: 150px;
   }
 
   .man{
-	width: 225px;
+	width: 170px;
   }
 }
   </style>

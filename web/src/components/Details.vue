@@ -6,7 +6,7 @@
 		<h1>Alejandro</h1>
 	  </div>
 	  <div class="description">
-		Lorem ipsum dolor sit amet consectetur
+		¡te invitamos a vivir un momento único en nuestras vidas!
 	  </div>
 	  <div class="dates">
 		<span class="time bold">20 . 09 . 24</span>
@@ -20,18 +20,18 @@
 	  <div class="locations">
 		<div class="church">
 		  <span class="bold">ceremonia</span>
-		  <span class="where">santo domingo de silos</span>
 		  <a href="https://maps.app.goo.gl/Gdr5KhaH3z231UQt5" target="_blank" class="icon-location">
-			<img src="../assets/location.png" alt="Ubicación de la iglesia">
+			<img src="../assets/location-2.png" alt="Ubicación de la iglesia">
 		  </a>
+		  <span class="where">santo domingo de silos</span>
 		</div>
 		<div class="separator"></div>
 		<div class="party">
-		  <span class="bold">fiesta</span>
-		  <span class="where">finca buenos aires</span>
+		  <span class="bold">party</span>
 		  <a href="https://maps.app.goo.gl/5wzmC2yJCt6qVxua9" target="_blank" class="icon-location">
-			<img src="../assets/location.png" alt="Ubicación de la fiesta">
+			<img src="../assets/location-2.png" alt="Ubicación de la fiesta">
 		  </a>
+		  <span class="where">finca buenos aires</span>
 		</div>
 	  </div>
 	</div>
@@ -88,7 +88,7 @@
 }
 
 .description{
-	text-align: justify;
+	text-align: center;
 	padding: 0 1rem;
 }
   .names{
@@ -106,7 +106,6 @@
   .where{
 	display: flex;
 	align-items: center;
-	min-height: 55px;
   }
   .locations{
 	display: flex;
@@ -126,11 +125,8 @@
 	flex-direction: column;
 	gap: 5px;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 	width: 150px;
-  }
-  .party{
-	align-items: flex-start;
   }
 
 .icon-location{

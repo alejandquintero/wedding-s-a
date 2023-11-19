@@ -1,6 +1,6 @@
 <template>
 	<div class="slide">
-	  <h1 class="title">Itinerario</h1>
+	  <h1 class="title">Plan</h1>
 	  <div class="container-itinerary">
 		<div class="activity" v-for="item in activities" :key="item.id">
 		  <div class="left-side">

@@ -4,10 +4,10 @@
 			<h1 class="title">Asistencia</h1>
 		</div>
 		<div>
-			<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Harum voluptatum adipisci nulla odit. Ea iste
-				adipisci placeat modi ratione ut fugit eaque facilis tempore, tempora cum quam veritatis nesciunt autem?</p>
+			<p>esperamos con alegría tu presencia en este día tan significativo para nosotros y nos encantaría contar contigo. tu participación será el toque perfecto para hacer este momento único e inolvidable. por favor, indícanos si podrás asistir marcando las casillas de confirmación.</p>
 		</div>	
 		<div v-if="members" class="container-form">
+			<span>familia</span>
 			<h2 class="subtitle">{{ members.name }}</h2>
 		</div>
 		<div v-if="members" class="container-form">
@@ -27,7 +27,7 @@
 			<div class="container-button" v-if="!showMessageSubmit">
 
 				<div class="container-button">
-					<button class="button" @click="updateAttendance">guardar</button>
+					<button class="button" @click="updateAttendance">aceptar</button>
 				</div>
 
 			</div>
@@ -79,7 +79,7 @@ export default {
                 })
                     .then((response) => {
                     if (response.ok) {
-                        this.statusMsg = '💗​';
+                        this.statusMsg = '¡gracias!';
                         this.successSubmit = true;
                     }
                     else {
@@ -156,7 +156,7 @@ p {
 	text-align: center;
 	border-radius: 20px;
 	background-color: var(--vt-c-slide-color-titles);
-	color: var(--color-bg-dark);
+	color: var(--vt-c-slide-color);
 	margin-left: 0px;
 }
 
