@@ -1,0 +1,41 @@
+version: '3.3'
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${db_name}
+      MYSQL_USER: ${db_user}
+      MYSQL_PASSWORD: ${db_password}
+      MYSQL_ROOT_PASSWORD: ${db_password}
+    volumes:
+      - my-db:/var/lib/mysql
+#     - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - backend
+  api:
+    image: api:0.0.2
+    restart: always
+    environment:
+      - db_url=db
+      - db_name=${db_name}
+      - db_user=${db_user}
+      - db_password=${db_password}
+    ports:
+      - '8080:8080'
+    networks:
+      - backend
+  web:
+    image: web:1.0.0
+    restart: always
+    # environment:
+    #   - VITE_URL_API=https://api.yourdomain/family
+    ports:
+      - '80:80'
+
+volumes:
+  my-db:
+networks:
+  backend:
+    driver: bridge
+    name: mysql_network
