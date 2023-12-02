@@ -21,7 +21,7 @@
 		<div class="church">
 		  <span class="bold">ceremonia</span>
 		  <a href="https://maps.app.goo.gl/Gdr5KhaH3z231UQt5" target="_blank" class="icon-location">
-			<img src="../assets/location-2.png" alt="Ubicación de la iglesia">
+			<img src="../assets/location.png" alt="Ubicación de la iglesia">
 		  </a>
 		  <span class="where">santo domingo de silos</span>
 		</div>
@@ -29,7 +29,7 @@
 		<div class="party">
 		  <span class="bold">party</span>
 		  <a href="https://maps.app.goo.gl/5wzmC2yJCt6qVxua9" target="_blank" class="icon-location">
-			<img src="../assets/location-2.png" alt="Ubicación de la fiesta">
+			<img src="../assets/location.png" alt="Ubicación de la fiesta">
 		  </a>
 		  <span class="where">finca buenos aires</span>
 		</div>

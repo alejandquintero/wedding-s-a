@@ -3,21 +3,21 @@
 	  <div class="titles">
 		<h1 class="title">Dresscode</h1>
 	  </div>
-	  <div class="locations">
-		<div class="church">
+	  <div class="dresscode">
+		<div class="side">
 		  <span class="bold">otoño elegante</span>
-		  <a href="#" target="_blank" class="icon-location">
-			<img src="../assets/man-gender.png" alt="Ubicación de la iglesia">
-		  </a>
-		  <span class="where">traje formal negro</span>
+		  <div class="icon-gender">
+			<img src="../assets/male-gender.png" alt="Género masculino">
+		  </div>
+		  <span>traje formal negro</span>
 		</div>
 		<div class="separator"></div>
-		<div class="party">
+		<div class="side">
 		  <span class="bold">atuendo formal</span>
-		  <a href="#" target="_blank" class="icon-location">
-			<img src="../assets/woman-gender.png" alt="Ubicación de la fiesta">
-		  </a>
-		  <span class="where">vestido largo</span>
+		  <div class="icon-gender">
+			<img src="../assets/female-gender.png" alt="Género femenino">
+		  </div>
+		  <span>vestido largo</span>
 		</div>
 	  </div>
 	  <div class="the-colors">
@@ -69,11 +69,6 @@
 	transform: translateY(25px);
   }
 
-  .dresscode{
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-  }
   .the-colors{
 	padding-bottom: 6px;
 	display: flex;
@@ -145,11 +140,7 @@
 	background-color: #faa842;
   }
 
-  .where{
-	display: flex;
-	align-items: center;
-  }
-  .locations{
+  .dresscode{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -163,7 +154,7 @@
 	background-color: #0000002e;
   }
 
-  .church, .party{
+  .side{
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -172,8 +163,7 @@
 	width: 150px;
   }
 
-.icon-location{
-	cursor: pointer;
+.icon-gender{
 	width: 20px;
 }
   

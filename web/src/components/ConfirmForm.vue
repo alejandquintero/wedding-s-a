@@ -61,7 +61,7 @@ export default {
     methods: {
         updateAttendance() {
             if (this.members) {
-                this.showMessageSubmit = 'sending'; // Mostrar mensaje de envío
+                this.showMessageSubmit = 'sending';
                 const updatedMembers = this.members.members.map((member) => ({
                     idPerson: member.idPerson,
                     accepted: member.accepted,
