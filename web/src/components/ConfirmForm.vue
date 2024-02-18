@@ -5,9 +5,10 @@
 		</div>
 		<div>
 			<p>esperamos con alegría tu presencia en este día tan significativo para nosotros y nos encantaría contar contigo. tu participación será el toque perfecto para hacer este momento único e inolvidable. por favor, indícanos si podrás asistir marcando las casillas de confirmación.</p>
-		</div>	
+		</div>
 		<div v-if="members" class="container-form">
-			<span>familia</span>
+			<span v-if="members.members.length === 1" >invitado</span>
+			<span v-else>familia</span>
 			<h2 class="subtitle">{{ members.name }}</h2>
 		</div>
 		<div v-if="members" class="container-form">
@@ -21,6 +22,7 @@
 				</div>
 			</div>
 		</div>
+		<p class="bold">*precio del banquete: 120€ por persona</p>
 
 		<Transition appear mode="out-in" name="fade">
 
@@ -120,7 +122,7 @@ p {
 }
 
 .subtitle{
-	font-size: 3rem;
+	font-size: 2.5rem;
 	font-family: 'Athalia' ;
 }
 
@@ -131,7 +133,6 @@ p {
 	align-items: flex-start;
 	width: 100%;
 	flex-direction: column;
-	gap: 15px;
 }
 
 .form-field {
@@ -156,7 +157,7 @@ p {
 	text-align: center;
 	border-radius: 20px;
 	background-color: var(--vt-c-slide-color-titles);
-	color: var(--vt-c-slide-color);
+	color: #f3efeb;
 	margin-left: 0px;
 }
 
@@ -175,7 +176,7 @@ p {
 	border: none;
 	border-radius: 20px;
 	background-color: var(--vt-c-slide-color-titles);
-	color: var(--vt-c-slide-color);
+	color: #f3efeb;
 }
 
 .container-button {
@@ -188,7 +189,7 @@ p {
 	color: var(--vt-c-slide-color-titles);
 	outline: 1px solid var(--vt-c-slide-color-titles);
 	outline-offset: -1px;
-	background-color: var(--vt-c-slide-color);
+	background-color: transparent;
 }
 
 /* Checkbox */
@@ -219,7 +220,7 @@ $checkbox-selected: #000; // Primary colour
       left: 0;
       top: 0;
       content: "";
-      background: var(--vt-c-slide-color);
+      background: transparent;
       width: $checkbox-size;
       height: $checkbox-size;
       

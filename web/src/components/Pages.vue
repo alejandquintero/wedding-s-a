@@ -21,6 +21,10 @@
 			<ConfirmForm :members="members"></ConfirmForm>
 		</swiper-slide>
 
+		<swiper-slide>
+			<Gifts :members="members"></Gifts>
+		</swiper-slide>
+
 	</swiper>
 </template>
 	
@@ -34,6 +38,7 @@ import Details from './Details.vue'
 import Dresscode from './Dresscode.vue'
 import Itinerary from './Itinerary.vue'
 import ConfirmForm from './ConfirmForm.vue'
+import Gifts from './Gifts.vue'
 
 export default {
 	data() {
@@ -79,7 +84,8 @@ export default {
 		Details,
 		Dresscode,
 		Itinerary,
-		ConfirmForm
+		ConfirmForm,
+		Gifts
 	},
 	setup() {
 		return {
@@ -123,7 +129,7 @@ h2 {
 
 .title {
 	font-family: 'Athalia';
-	font-size: 4rem;
+	font-size: 3rem;
 }
 
 .swiper-slide {
@@ -131,7 +137,6 @@ h2 {
 	padding: 4rem;
 	font-size: 16px;
 	font-family: 'Sky';
-	background-color: var(--vt-c-slide-color);
 	height: 100vh;
 	display: flex;
 	justify-content: center;

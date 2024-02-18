@@ -4,6 +4,11 @@
   max-width: 100%;
   margin: 0 0;
   font-weight: normal;
+  background-image: url(../assets/wallpaper.webp);
+  background-color:var(--vt-c-slide-color) ;
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 a,

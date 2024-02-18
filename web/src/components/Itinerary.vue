@@ -1,6 +1,6 @@
 <template>
 	<div class="slide">
-	  <h1 class="title">Plan</h1>
+	  <h1 class="title">As<span class="acento">i</span> ser<span class="acento acento-a">a</span> nuestro d<span class="acento">i</span>a</h1>
 	  <div class="container-itinerary">
 		<div class="activity" v-for="item in activities" :key="item.id">
 		  <div class="left-side">
@@ -14,6 +14,7 @@
 		  </div>
 		</div>
 	  </div>
+	  <p>*las horas son estimadas, pero las risas, el vino y una buena comida están aseguradas</p>
 	</div>
   </template>
   
@@ -32,25 +33,25 @@
 		  {
 			id: 2,
 			image: 'icons/champagne-glass.png',
-			hour: '19:00',
+			hour: '19:30',
 			name: 'cóctel'
 		  },
 		  {
 			id: 3,
-			image: 'icons/dance.png',
-			hour: '20:00',
-			name: 'baile'
+			image: 'icons/food.png',
+			hour: '21:30',
+			name: 'banquete'
 		  },
 		  {
 			id: 4,
-			image: 'icons/food.png',
-			hour: '21:00',
-			name: 'banquete'
+			image: 'icons/dance.png',
+			hour: '23:30',
+			name: 'baile'
 		  },
 		  {
 			id: 5,
 			image: 'icons/dance-party.png',
-			hour: '23:00',
+			hour: '00:00',
 			name: 'party'
 		  }
 		]
@@ -61,8 +62,22 @@
   
   <style scoped>
 
+.acento{
+	position: relative;
+}
+
+.acento::after{
+	content: '';
+	position: absolute;
+	background-color: var(--vt-c-slide-color-titles);
+	width: 1px;
+	height: 4px;
+	border-radius: 6px;
+	transform:  translate(-5px, 25px) rotate(30deg);
+}
+
 .container-logo{
-	width: 100px;
+	width: 90px;
 	padding: 1.5rem;
   }
 
@@ -124,6 +139,17 @@
 		width: 100px;
 		padding: .7rem;
   	}
+
+	.acento::after{
+	content: '';
+	position: absolute;
+	background-color: var(--vt-c-slide-color-titles);
+	width: 2px;
+	height: 7px;
+	border-radius: 6px;
+	transform:  translate(-9.5px, 45px) rotate(30deg);
+	
+}
 }
 </style>
   
